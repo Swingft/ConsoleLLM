@@ -1,0 +1,12 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/SwiftCompilerPlugin.d",
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/SwiftCompilerPlugin.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftCompilerPlugin/CompilerPlugin.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/CompilerPlugin.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/CompilerPlugin~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/CompilerPlugin.swiftdeps"
+  }
+}

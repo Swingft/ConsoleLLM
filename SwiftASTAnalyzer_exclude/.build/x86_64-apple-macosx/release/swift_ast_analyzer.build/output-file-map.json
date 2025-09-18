@@ -1,0 +1,12 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/swift_ast_analyzer.build/swift_ast_analyzer.d",
+    "object": "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/swift_ast_analyzer.build/swift_ast_analyzer.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/swift_ast_analyzer.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/Sources/SwiftASTAnalyzer/main.swift": {
+    "object": "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/swift_ast_analyzer.build/main.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/swift_ast_analyzer.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/swift_ast_analyzer.build/main.swiftdeps"
+  }
+}

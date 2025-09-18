@@ -1,0 +1,7 @@
+version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
+options: "cd838d58614454a3a5671283b5e4d5b2cd546065dc5834e83f1a7be2b10cf51d"
+build_start_time: [1755532802, 354388000]
+build_end_time: [1755532802, 536126000]
+inputs:
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/VersionMarkerModules/SwiftSyntax510/Empty.swift"
+  : [1755532719, 492604049]

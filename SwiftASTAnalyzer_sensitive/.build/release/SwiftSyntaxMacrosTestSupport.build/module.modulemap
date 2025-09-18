@@ -1,0 +1,4 @@
+module SwiftSyntaxMacrosTestSupport {
+    header "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/SwiftSyntaxMacrosTestSupport-Swift.h"
+    requires objc
+}

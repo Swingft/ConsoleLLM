@@ -1,0 +1,9 @@
+.idea/
+.DS_store
+
+base_model.gguf
+lora_sensitive.gguf
+lora_exclude.gguf
+test_project/
+
+

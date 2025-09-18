@@ -1,0 +1,27 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/SwiftBasicFormat.d",
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/SwiftBasicFormat.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftBasicFormat/BasicFormat.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/BasicFormat.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/BasicFormat~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/BasicFormat.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftBasicFormat/Syntax+Extensions.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/Syntax+Extensions.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/Syntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/Syntax+Extensions.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftBasicFormat/SyntaxProtocol+Formatted.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/SyntaxProtocol+Formatted.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/SyntaxProtocol+Formatted~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/SyntaxProtocol+Formatted.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftBasicFormat/Trivia+FormatExtensions.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/Trivia+FormatExtensions.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/Trivia+FormatExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/Trivia+FormatExtensions.swiftdeps"
+  }
+}

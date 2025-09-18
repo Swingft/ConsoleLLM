@@ -1,0 +1,4 @@
+module SwiftIDEUtils {
+    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/SwiftIDEUtils.build/SwiftIDEUtils-Swift.h"
+    requires objc
+}

@@ -1,0 +1,4 @@
+module SwiftSyntax509 {
+    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/SwiftSyntax509.build/SwiftSyntax509-Swift.h"
+    requires objc
+}

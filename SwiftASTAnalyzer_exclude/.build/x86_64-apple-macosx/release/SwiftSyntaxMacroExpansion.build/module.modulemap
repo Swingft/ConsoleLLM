@@ -1,0 +1,4 @@
+module SwiftSyntaxMacroExpansion {
+    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/SwiftSyntaxMacroExpansion.build/SwiftSyntaxMacroExpansion-Swift.h"
+    requires objc
+}

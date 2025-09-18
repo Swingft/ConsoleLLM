@@ -1,0 +1,89 @@
+version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
+options: "ee008ff895264f0d6ce945486bf1b907e6bb57f5b606493cda8010af293560a8"
+build_start_time: [1757847978, 371626000]
+build_end_time: [1757847994, 216903000]
+inputs:
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Attributes.swift"
+  : [1757847879, 803796595]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Availability.swift"
+  : [1757847879, 804015636]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/CharacterInfo.swift"
+  : [1757847879, 804300218]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/CollectionNodes+Parsable.swift"
+  : [1757847879, 804374800]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Declarations.swift"
+  : [1757847879, 804752798]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Directives.swift"
+  : [1757847879, 804874464]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/ExperimentalFeatures.swift"
+  : [1757847879, 805082796]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Expressions.swift"
+  : [1757847879, 805543127]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/IncrementalParseTransition.swift"
+  : [1757847879, 805752959]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/Cursor.swift"
+  : [1757847879, 806258373]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/Lexeme.swift"
+  : [1757847879, 807342783]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/LexemeSequence.swift"
+  : [1757847879, 807430866]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/Lexer.swift"
+  : [1757847879, 807491782]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/RegexLiteralLexer.swift"
+  : [1757847879, 807579907]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/UnicodeScalarExtensions.swift"
+  : [1757847879, 808437402]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lookahead.swift"
+  : [1757847879, 808646150]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/LoopProgressCondition.swift"
+  : [1757847879, 808718358]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Modifiers.swift"
+  : [1757847879, 808814524]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Names.swift"
+  : [1757847879, 808922690]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Nominals.swift"
+  : [1757847879, 809085523]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Parameters.swift"
+  : [1757847879, 809171481]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/ParseSourceFile.swift"
+  : [1757847879, 809246772]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Parser.swift"
+  : [1757847879, 809477812]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Patterns.swift"
+  : [1757847879, 809813519]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Recovery.swift"
+  : [1757847879, 809972559]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Specifiers.swift"
+  : [1757847879, 810077184]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Statements.swift"
+  : [1757847879, 810255724]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/StringLiteralRepresentedLiteralValue.swift"
+  : [1757847879, 810353765]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/StringLiterals.swift"
+  : [1757847879, 810458848]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/SwiftParserCompatibility.swift"
+  : [1757847879, 811153594]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/SyntaxUtils.swift"
+  : [1757847879, 811213469]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenConsumer.swift"
+  : [1757847879, 811305010]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenPrecedence.swift"
+  : [1757847879, 811395259]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenSpec.swift"
+  : [1757847879, 811458634]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenSpecSet.swift"
+  : [1757847879, 811557508]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TopLevel.swift"
+  : [1757847879, 811653049]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TriviaParser.swift"
+  : [1757847879, 811725341]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Types.swift"
+  : [1757847879, 811854298]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/IsLexerClassified.swift"
+  : [1757847879, 812096422]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/LayoutNodes+Parsable.swift"
+  : [1757847879, 812224713]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/Parser+TokenSpecSet.swift"
+  : [1757847879, 812337045]
+  ? "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/TokenSpecStaticMembers.swift"
+  : [1757847879, 812626585]

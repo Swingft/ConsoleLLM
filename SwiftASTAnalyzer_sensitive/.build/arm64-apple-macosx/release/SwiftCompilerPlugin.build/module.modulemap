@@ -1,0 +1,4 @@
+module SwiftCompilerPlugin {
+    header "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftCompilerPlugin.build/SwiftCompilerPlugin-Swift.h"
+    requires objc
+}

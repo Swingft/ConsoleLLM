@@ -1,0 +1,4 @@
+module SwiftCompilerPlugin {
+    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/SwiftCompilerPlugin.build/SwiftCompilerPlugin-Swift.h"
+    requires objc
+}

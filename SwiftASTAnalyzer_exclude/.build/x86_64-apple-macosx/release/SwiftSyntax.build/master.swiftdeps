@@ -1,0 +1,143 @@
+version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
+options: "d8e69dfa1578400ce27141349edbae7de7a3b9b133770993b479644788cdef97"
+build_start_time: [1755532802, 689870000]
+build_end_time: [1755532940, 627869000]
+inputs:
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/AbsolutePosition.swift"
+  : [1755532719, 461673446]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/AbsoluteRawSyntax.swift"
+  : [1755532719, 461728155]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/AbsoluteSyntaxInfo.swift"
+  : [1755532719, 461784239]
+  "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Assert.swift": [1755532719, 461878407]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/BumpPtrAllocator.swift"
+  : [1755532719, 461979658]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/CommonAncestor.swift"
+  : [1755532719, 462162160]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Convenience.swift"
+  : [1755532719, 462257661]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/CustomTraits.swift"
+  : [1755532719, 462312078]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Identifier.swift"
+  : [1755532719, 466166664]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/MemoryLayout.swift"
+  : [1755532719, 466254373]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/MissingNodeInitializers.swift"
+  : [1755532719, 466338791]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Raw/RawSyntax.swift"
+  : [1755532719, 466488918]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Raw/RawSyntaxLayoutView.swift"
+  : [1755532719, 466590752]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Raw/RawSyntaxNodeProtocol.swift"
+  : [1755532719, 466685587]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Raw/RawSyntaxTokenView.swift"
+  : [1755532719, 466793838]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SourceEdit.swift"
+  : [1755532719, 467007799]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SourceLength.swift"
+  : [1755532719, 467097383]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SourceLocation.swift"
+  : [1755532719, 467267385]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SourcePresence.swift"
+  : [1755532719, 467356886]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SwiftSyntaxCompatibility.swift"
+  : [1755532719, 467459804]
+  "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Syntax.swift": [1755532719, 467777891]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxArena.swift"
+  : [1755532719, 468063894]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxArenaAllocatedBuffer.swift"
+  : [1755532719, 468120936]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxChildren.swift"
+  : [1755532719, 468231938]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxCollection.swift"
+  : [1755532719, 468351731]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxHashable.swift"
+  : [1755532719, 468419148]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxIdentifier.swift"
+  : [1755532719, 468478565]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxNodeFactory.swift"
+  : [1755532719, 468532858]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxNodeStructure.swift"
+  : [1755532719, 468586192]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxProtocol.swift"
+  : [1755532719, 468674401]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxText.swift"
+  : [1755532719, 468779860]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/SyntaxTreeViewMode.swift"
+  : [1755532719, 468863028]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/TokenDiagnostic.swift"
+  : [1755532719, 468953321]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/TokenSequence.swift"
+  : [1755532719, 469007030]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/TokenSyntax.swift"
+  : [1755532719, 469102323]
+  "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Trivia.swift": [1755532719, 469202490]
+  "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/Utils.swift": [1755532719, 469302700]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/ChildNameForKeyPath.swift"
+  : [1755532719, 469885998]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/Keyword.swift"
+  : [1755532719, 470015958]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/RenamedChildrenCompatibility.swift"
+  : [1755532719, 470292920]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/RenamedNodesCompatibility.swift"
+  : [1755532719, 471951188]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxAnyVisitor.swift"
+  : [1755532719, 474068421]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxBaseNodes.swift"
+  : [1755532719, 474200422]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxCollections.swift"
+  : [1755532719, 474353799]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxEnum.swift"
+  : [1755532719, 474477884]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxKind.swift"
+  : [1755532719, 474573802]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxRewriter.swift"
+  : [1755532719, 475078682]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxTraits.swift"
+  : [1755532719, 475225226]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/SyntaxVisitor.swift"
+  : [1755532719, 475646064]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/TokenKind.swift"
+  : [1755532719, 476081444]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/Tokens.swift"
+  : [1755532719, 476212570]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/TriviaPieces.swift"
+  : [1755532719, 476378739]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesAB.swift"
+  : [1755532719, 476644867]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesC.swift"
+  : [1755532719, 477089372]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesD.swift"
+  : [1755532719, 477212123]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesEF.swift"
+  : [1755532719, 477343042]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesGHI.swift"
+  : [1755532719, 477600711]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesJKLMN.swift"
+  : [1755532719, 477734713]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesOP.swift"
+  : [1755532719, 477861714]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesQRS.swift"
+  : [1755532719, 477998424]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxNodesTUVWXYZ.swift"
+  : [1755532719, 478083175]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/raw/RawSyntaxValidation.swift"
+  : [1755532719, 478754641]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesAB.swift"
+  : [1755532719, 479280897]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesC.swift"
+  : [1755532719, 480060948]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesD.swift"
+  : [1755532719, 482318307]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesEF.swift"
+  : [1755532719, 482608810]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesGHI.swift"
+  : [1755532719, 483202775]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesJKLMN.swift"
+  : [1755532719, 483871158]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesOP.swift"
+  : [1755532719, 484916003]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesQRS.swift"
+  : [1755532719, 485130089]
+  ? "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntax/generated/syntaxNodes/SyntaxNodesTUVWXYZ.swift"
+  : [1755532719, 485721095]

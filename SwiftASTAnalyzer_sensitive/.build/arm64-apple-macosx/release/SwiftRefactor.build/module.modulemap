@@ -1,0 +1,4 @@
+module SwiftRefactor {
+    header "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftRefactor.build/SwiftRefactor-Swift.h"
+    requires objc
+}

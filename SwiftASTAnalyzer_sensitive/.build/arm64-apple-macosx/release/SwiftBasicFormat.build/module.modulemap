@@ -1,0 +1,4 @@
+module SwiftBasicFormat {
+    header "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftBasicFormat.build/SwiftBasicFormat-Swift.h"
+    requires objc
+}

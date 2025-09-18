@@ -1,0 +1,77 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/SwiftSyntaxMacros.d",
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/SwiftSyntaxMacros.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/AbstractSourceLocation.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AbstractSourceLocation.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AbstractSourceLocation~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AbstractSourceLocation.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroExpansionContext.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MacroExpansionContext.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MacroExpansionContext~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MacroExpansionContext.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/AccessorMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AccessorMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AccessorMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AccessorMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/AttachedMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AttachedMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AttachedMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/AttachedMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/CodeItemMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/CodeItemMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/CodeItemMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/CodeItemMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/DeclarationMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/DeclarationMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/DeclarationMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/DeclarationMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/ExpressionMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/ExpressionMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/ExpressionMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/ExpressionMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/ExtensionMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/ExtensionMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/ExtensionMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/ExtensionMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/FreestandingMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/FreestandingMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/FreestandingMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/FreestandingMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/Macro+Format.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/Macro+Format.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/Macro+Format~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/Macro+Format.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/Macro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/Macro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/Macro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/Macro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/MemberAttributeMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MemberAttributeMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MemberAttributeMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MemberAttributeMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/MemberMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MemberMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MemberMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/MemberMacro.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacros/MacroProtocols/PeerMacro.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/PeerMacro.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/PeerMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacros.build/PeerMacro.swiftdeps"
+  }
+}

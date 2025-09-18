@@ -1,0 +1,4 @@
+module SwiftCompilerPluginMessageHandling {
+    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/SwiftCompilerPluginMessageHandling.build/SwiftCompilerPluginMessageHandling-Swift.h"
+    requires objc
+}

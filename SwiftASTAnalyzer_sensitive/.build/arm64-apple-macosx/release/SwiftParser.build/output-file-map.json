@@ -1,0 +1,217 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SwiftParser.d",
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SwiftParser.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Attributes.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Attributes.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Attributes~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Attributes.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Availability.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Availability.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Availability~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Availability.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/CharacterInfo.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/CharacterInfo.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/CharacterInfo~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/CharacterInfo.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/CollectionNodes+Parsable.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/CollectionNodes+Parsable.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/CollectionNodes+Parsable~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/CollectionNodes+Parsable.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Declarations.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Declarations.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Declarations~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Declarations.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Directives.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Directives.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Directives~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Directives.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/ExperimentalFeatures.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/ExperimentalFeatures.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/ExperimentalFeatures~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/ExperimentalFeatures.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Expressions.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Expressions.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Expressions~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Expressions.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/IncrementalParseTransition.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/IncrementalParseTransition.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/IncrementalParseTransition~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/IncrementalParseTransition.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/Cursor.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Cursor.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Cursor~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Cursor.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/Lexeme.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lexeme.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lexeme~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lexeme.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/LexemeSequence.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LexemeSequence.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LexemeSequence~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LexemeSequence.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/Lexer.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lexer.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lexer~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lexer.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/RegexLiteralLexer.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/RegexLiteralLexer.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/RegexLiteralLexer~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/RegexLiteralLexer.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lexer/UnicodeScalarExtensions.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/UnicodeScalarExtensions.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/UnicodeScalarExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/UnicodeScalarExtensions.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Lookahead.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lookahead.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lookahead~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Lookahead.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/LoopProgressCondition.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LoopProgressCondition.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LoopProgressCondition~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LoopProgressCondition.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Modifiers.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Modifiers.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Modifiers~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Modifiers.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Names.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Names.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Names~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Names.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Nominals.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Nominals.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Nominals~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Nominals.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Parameters.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parameters.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parameters~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parameters.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/ParseSourceFile.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/ParseSourceFile.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/ParseSourceFile~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/ParseSourceFile.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Parser.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parser.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parser~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parser.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Patterns.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Patterns.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Patterns~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Patterns.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Recovery.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Recovery.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Recovery~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Recovery.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Specifiers.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Specifiers.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Specifiers~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Specifiers.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Statements.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Statements.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Statements~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Statements.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/StringLiteralRepresentedLiteralValue.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/StringLiteralRepresentedLiteralValue.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/StringLiteralRepresentedLiteralValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/StringLiteralRepresentedLiteralValue.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/StringLiterals.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/StringLiterals.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/StringLiterals~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/StringLiterals.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/SwiftParserCompatibility.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SwiftParserCompatibility.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SwiftParserCompatibility~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SwiftParserCompatibility.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/SyntaxUtils.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SyntaxUtils.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SyntaxUtils~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/SyntaxUtils.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenConsumer.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenConsumer.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenConsumer~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenConsumer.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenPrecedence.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenPrecedence.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenPrecedence~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenPrecedence.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenSpec.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpec.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpec~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpec.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TokenSpecSet.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpecSet.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpecSet~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpecSet.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TopLevel.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TopLevel.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TopLevel~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TopLevel.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/TriviaParser.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TriviaParser.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TriviaParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TriviaParser.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/Types.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Types.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Types~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Types.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/IsLexerClassified.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/IsLexerClassified.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/IsLexerClassified~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/IsLexerClassified.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/LayoutNodes+Parsable.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LayoutNodes+Parsable.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LayoutNodes+Parsable~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/LayoutNodes+Parsable.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/Parser+TokenSpecSet.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parser+TokenSpecSet.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parser+TokenSpecSet~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/Parser+TokenSpecSet.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftParser/generated/TokenSpecStaticMembers.swift": {
+    "object": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpecStaticMembers.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpecStaticMembers~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParser.build/TokenSpecStaticMembers.swiftdeps"
+  }
+}

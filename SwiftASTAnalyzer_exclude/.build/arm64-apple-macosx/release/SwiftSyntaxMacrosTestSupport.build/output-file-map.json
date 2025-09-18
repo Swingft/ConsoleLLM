@@ -1,0 +1,12 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/SwiftSyntaxMacrosTestSupport.d",
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/SwiftSyntaxMacrosTestSupport.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftSyntaxMacrosTestSupport/Assertions.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/Assertions.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/Assertions~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntaxMacrosTestSupport.build/Assertions.swiftdeps"
+  }
+}

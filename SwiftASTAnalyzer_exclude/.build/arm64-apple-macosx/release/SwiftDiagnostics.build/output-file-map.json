@@ -1,0 +1,42 @@
+{
+  "": {
+    "dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/SwiftDiagnostics.d",
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/SwiftDiagnostics.o",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/master.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/Convenience.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Convenience.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Convenience~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Convenience.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/Diagnostic.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Diagnostic.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Diagnostic~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Diagnostic.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/DiagnosticsFormatter.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/DiagnosticsFormatter.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/DiagnosticsFormatter~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/DiagnosticsFormatter.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/FixIt.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/FixIt.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/FixIt~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/FixIt.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/GroupedDiagnostics.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/GroupedDiagnostics.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/GroupedDiagnostics~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/GroupedDiagnostics.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/Message.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Message.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Message~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Message.swiftdeps"
+  },
+  "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/checkouts/swift-syntax/Sources/SwiftDiagnostics/Note.swift": {
+    "object": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Note.swift.o",
+    "swiftmodule": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Note~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftDiagnostics.build/Note.swiftdeps"
+  }
+}
