@@ -1,0 +1,2 @@
+# ConsoleLLM 의존성 (Metal 지원)
+llama-cpp-python>=0.2.20

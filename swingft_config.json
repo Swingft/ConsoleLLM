@@ -16,13 +16,13 @@
   "_comment_exclude": "The following section is optional and can be customized as needed.",
   "exclude": {
     "obfuscation": [
-      "sampleClass",
-      "sampleFunction",
-      "sampleVariable",
-      "sampleProperty",
-      "sampleProtocol",
-      "sampleStructure",
-      "**Wildcard"
+      "AppearanceConfigurationTests",
+      "configureDescriptionLabel",
+      "stackView",
+      "advanceButtonStyling",
+      "OnboardPageViewControllerDelegate",
+      "AppearanceConfiguration",
+      "OnboardPageCompletion"
     ],
     "encryption": [
       "someString",

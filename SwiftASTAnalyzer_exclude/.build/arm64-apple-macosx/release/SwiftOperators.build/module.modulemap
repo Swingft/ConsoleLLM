@@ -1,4 +1,0 @@
-module SwiftOperators {
-    header "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftOperators.build/SwiftOperators-Swift.h"
-    requires objc
-}

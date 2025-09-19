@@ -1,4 +1,0 @@
-module SwiftParserDiagnostics {
-    header "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftParserDiagnostics.build/SwiftParserDiagnostics-Swift.h"
-    requires objc
-}

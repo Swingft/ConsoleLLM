@@ -1,9 +1,16 @@
+# IDE & System Files
 .idea/
-.DS_store
+.DS_Store
 
+# Python Cache & Build Artifacts
+__pycache__/
+*.egg-info/
+
+# Model Files
 base_model.gguf
 lora_sensitive.gguf
 lora_exclude.gguf
+
+# Test & Output Directories
 test_project/
-
-
+output/

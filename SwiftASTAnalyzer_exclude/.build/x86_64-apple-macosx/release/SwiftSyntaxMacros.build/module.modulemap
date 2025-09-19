@@ -1,4 +1,0 @@
-module SwiftSyntaxMacros {
-    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/SwiftSyntaxMacros.build/SwiftSyntaxMacros-Swift.h"
-    requires objc
-}

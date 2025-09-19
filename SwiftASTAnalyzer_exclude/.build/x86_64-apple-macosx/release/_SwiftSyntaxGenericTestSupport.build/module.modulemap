@@ -1,4 +1,0 @@
-module _SwiftSyntaxGenericTestSupport {
-    header "/Users/ibm514/PycharmProjects/propagation-graph/SwiftASTAnalyzer/.build/x86_64-apple-macosx/release/_SwiftSyntaxGenericTestSupport.build/_SwiftSyntaxGenericTestSupport-Swift.h"
-    requires objc
-}

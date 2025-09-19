@@ -1,4 +1,0 @@
-module _SwiftSyntaxTestSupport {
-    header "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/_SwiftSyntaxTestSupport.build/_SwiftSyntaxTestSupport-Swift.h"
-    requires objc
-}

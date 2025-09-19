@@ -1,6 +1,0 @@
-version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
-options: "f24eba49b86de4c0ae73fdf31d7211cf52b83ab8cfbd41b155b03b0bd53cf83e"
-build_start_time: [1757171413, 471093000]
-build_end_time: [1757171414, 517805000]
-inputs:
-  "/Users/ibm514/PycharmProjects/Preprocessing/SwiftASTAnalyzer/Sources/SwiftASTAnalyzer/main.swift": [1757171355, 318220631]

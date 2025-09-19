@@ -1,4 +1,0 @@
-module SwiftSyntax600 {
-    header "/Users/ibm514/PycharmProjects/preprocessing_exclude/SwiftASTAnalyzer/.build/arm64-apple-macosx/release/SwiftSyntax600.build/SwiftSyntax600-Swift.h"
-    requires objc
-}
