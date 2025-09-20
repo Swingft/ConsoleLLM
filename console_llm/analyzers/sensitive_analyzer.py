@@ -4,7 +4,7 @@
 """
 sensitive_analyzer.py
 
-Sensitive 모드 전용 분석기 - 모듈화된 버전
+Sensitive 모드 전용 분석기 - save_individual_files 옵션 추가 버전
 """
 
 import os
@@ -16,6 +16,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 from ..core.base_analyzer import BaseAnalyzer
 from ..core.model_loader import OptimizedModelLoader
+from ..core.utils import (
+    extract_sensitive_identifiers,
+    save_identifiers_to_txt,
+    clean_and_deduplicate_identifiers
+)
 
 
 class SensitiveAnalyzer(BaseAnalyzer):
@@ -83,38 +88,52 @@ Task: Perform a security audit on the above Swift code and return ONLY a JSON ob
 
         return system_prompt, user_prompt
 
-    def analyze_project(self, config_path: str, output_dir: str = "./output_sensitive",
-                        max_workers: int = 4) -> Dict[str, Any]:
+    def analyze_project(self, project_path: str = None, config_path: str = None,
+                        output_dir: str = "./output_sensitive", max_workers: int = 4,
+                        save_individual_files: bool = False) -> Dict[str, Any]:
         """
         전체 프로젝트 보안 분석
 
         Args:
-            config_path: swingft_config.json 경로
+            project_path: Swift 프로젝트 디렉토리 경로 (우선순위 높음)
+            config_path: swingft_config.json 경로 (선택사항)
             output_dir: 출력 디렉토리
             max_workers: 병렬 처리 워커 수
+            save_individual_files: 개별 JSON 파일 저장 여부
 
         Returns:
             분석 결과 요약
         """
         print(f"\n=== SensitiveAnalyzer: 보안 취약점 분석 시작 ===")
 
-        config = self.load_swingft_config(config_path)
-        project_input_path = config['project']['input']
-        target_identifiers = config.get('exclude', {}).get('obfuscation', [])
+        # 프로젝트 경로 결정 (CLI 인자 우선, 그 다음 config 파일)
+        project_input_path = self.resolve_project_path(project_path, config_path)
 
-        if not target_identifiers:
-            print("No target identifiers found in exclude.obfuscation")
-            return {"files_analyzed": 0, "results": []}
+        # config 파일에서 target_identifiers 읽기 (있는 경우에만)
+        target_identifiers = []
+        if config_path:
+            config = self.load_swingft_config(config_path)
+            target_identifiers = config.get('exclude', {}).get('obfuscation', [])
 
-        print(f"Target identifiers from exclude.obfuscation: {target_identifiers}")
-
-        swift_files = self.find_swift_files_with_identifiers(project_input_path, target_identifiers)
-
-        if not swift_files:
-            print("No Swift files found with target identifiers")
-            return {"files_analyzed": 0, "results": []}
+        # target_identifiers가 있으면 특정 파일만, 없으면 모든 Swift 파일 분석
+        if target_identifiers:
+            print(f"Target identifiers from config: {target_identifiers}")
+            swift_files = self.find_swift_files_with_identifiers(project_input_path, target_identifiers)
+            if not swift_files:
+                print("No Swift files found with target identifiers")
+                return {"files_analyzed": 0, "results": []}
+        else:
+            print("No target identifiers specified, analyzing all Swift files")
+            swift_files = self.get_all_swift_files(project_input_path)
+            if not swift_files:
+                print("No Swift files found in project")
+                return {"files_analyzed": 0, "results": []}
 
         os.makedirs(output_dir, exist_ok=True)
+
+        # 개별 파일 저장 모드 알림
+        if save_individual_files:
+            print(f"Debug mode: 개별 JSON 파일들도 {output_dir}에 저장됩니다.")
 
         # 병렬 처리 시작 전에 모델을 메인 메모리에 미리 로드합니다.
         self.preload_model()
@@ -134,11 +153,13 @@ Task: Perform a security audit on the above Swift code and return ONLY a JSON ob
                     result = future.result()
                     results.append(result)
 
-                    filename = os.path.basename(swift_file).replace('.swift', '_sensitive.json')
-                    output_path = os.path.join(output_dir, filename)
+                    # 개별 JSON 파일 저장 (조건부)
+                    if save_individual_files:
+                        filename = os.path.basename(swift_file).replace('.swift', '_sensitive.json')
+                        output_path = os.path.join(output_dir, filename)
 
-                    with open(output_path, 'w', encoding='utf-8') as f:
-                        json.dump(result, f, ensure_ascii=False, indent=2)
+                        with open(output_path, 'w', encoding='utf-8') as f:
+                            json.dump(result, f, ensure_ascii=False, indent=2)
 
                     if 'error' in result:
                         print(f"✗ {os.path.basename(swift_file)}: {result['error']}")
@@ -156,13 +177,24 @@ Task: Perform a security audit on the above Swift code and return ONLY a JSON ob
 
         successful_results = [r for r in results if 'error' not in r]
         failed_results = [r for r in results if 'error' in r]
-        total_sensitive_identifiers = sum(len(r['identifiers']) for r in successful_results)
 
+        # identifiers 추출 및 함수명 정리
         all_sensitive_identifiers = []
         for result in successful_results:
-            all_sensitive_identifiers.extend(result['identifiers'])
-        unique_sensitive_identifiers = list(set(all_sensitive_identifiers))
+            identifiers = extract_sensitive_identifiers(result)
+            all_sensitive_identifiers.extend(identifiers)
 
+        # 중복 제거하고 정렬
+        unique_sensitive_identifiers = clean_and_deduplicate_identifiers(all_sensitive_identifiers)
+
+        # sensitive_id.txt 파일로 저장 (항상 생성)
+        sensitive_txt_path = os.path.join(output_dir, "sensitive_id.txt")
+        save_identifiers_to_txt(unique_sensitive_identifiers, sensitive_txt_path)
+
+        # 기존 통계 계산 (호환성 유지)
+        total_sensitive_identifiers = len(all_sensitive_identifiers)
+
+        # 요약 결과 (save_individual_files가 False면 results 제외)
         summary = {
             "mode": "sensitive",
             "files_analyzed": len(swift_files),
@@ -170,9 +202,13 @@ Task: Perform a security audit on the above Swift code and return ONLY a JSON ob
             "failed": len(failed_results),
             "total_sensitive_identifiers_found": total_sensitive_identifiers,
             "unique_sensitive_identifiers": unique_sensitive_identifiers,
-            "results": results
         }
 
+        # 개별 파일 저장 모드일 때만 results 포함
+        if save_individual_files:
+            summary["results"] = results
+
+        # summary 저장 (항상 생성)
         summary_path = os.path.join(output_dir, "summary_sensitive.json")
         with open(summary_path, 'w', encoding='utf-8') as f:
             json.dump(summary, f, ensure_ascii=False, indent=2)
@@ -184,5 +220,9 @@ Task: Perform a security audit on the above Swift code and return ONLY a JSON ob
         print(f"Total sensitive identifiers found: {total_sensitive_identifiers}")
         print(f"Unique sensitive identifiers: {len(unique_sensitive_identifiers)}")
         print(f"Results saved to: {output_dir}")
+        print(f"Identifiers saved to: {sensitive_txt_path}")
+
+        if save_individual_files:
+            print(f"개별 JSON 파일들도 저장되었습니다.")
 
         return summary

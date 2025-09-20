@@ -10,6 +10,7 @@ utils.py
 import os
 import json
 import glob
+import re
 from typing import Dict, Any, List
 from pathlib import Path
 
@@ -98,7 +99,6 @@ def create_output_directory(base_dir: str, mode: str, config_name: str = None) -
 
 def sanitize_filename(filename: str) -> str:
     """파일명에서 특수문자 제거"""
-    import re
     # 특수문자를 언더스코어로 변경
     sanitized = re.sub(r'[^\w\-_.]', '_', filename)
     # 연속된 언더스코어를 하나로 변경
@@ -144,3 +144,96 @@ def generate_summary_stats(results: List[Dict[str, Any]], mode: str) -> Dict[str
         "unique_identifiers": all_identifiers,
         "unique_identifiers_count": len(all_identifiers)
     }
+
+
+# === 새로 추가된 함수들 ===
+
+def extract_function_name(identifier_string: str) -> str:
+    """함수명에서 파라미터와 반환타입 제거"""
+    if not identifier_string:
+        return identifier_string
+
+    # "functionName(param1: Type, param2: Type) -> ReturnType" -> "functionName"
+    if '(' in identifier_string:
+        return identifier_string.split('(')[0].strip()
+    return identifier_string.strip()
+
+
+def extract_symbol_names_from_exclude_result(result: Dict[str, Any]) -> List[str]:
+    """Exclude 결과에서 symbol_name만 추출"""
+    symbol_names = []
+
+    if 'identifiers' not in result:
+        return symbol_names
+
+    for identifier in result['identifiers']:
+        if isinstance(identifier, str):
+            # JSON 문자열인 경우 파싱 시도
+            try:
+                parsed = json.loads(identifier)
+                if isinstance(parsed, dict) and 'symbol_name' in parsed:
+                    symbol_name = extract_function_name(parsed['symbol_name'])
+                    if symbol_name:
+                        symbol_names.append(symbol_name)
+                else:
+                    # JSON이지만 symbol_name이 없는 경우, 문자열 자체를 사용
+                    symbol_name = extract_function_name(str(parsed))
+                    if symbol_name:
+                        symbol_names.append(symbol_name)
+            except (json.JSONDecodeError, TypeError):
+                # JSON이 아닌 일반 문자열인 경우
+                symbol_name = extract_function_name(identifier)
+                if symbol_name:
+                    symbol_names.append(symbol_name)
+        elif isinstance(identifier, dict) and 'symbol_name' in identifier:
+            # 이미 파싱된 딕셔너리인 경우
+            symbol_name = extract_function_name(identifier['symbol_name'])
+            if symbol_name:
+                symbol_names.append(symbol_name)
+        else:
+            # 기타 타입인 경우 문자열로 변환
+            symbol_name = extract_function_name(str(identifier))
+            if symbol_name:
+                symbol_names.append(symbol_name)
+
+    return symbol_names
+
+
+def extract_sensitive_identifiers(result: Dict[str, Any]) -> List[str]:
+    """Sensitive 결과에서 identifiers 추출 및 함수명 정리"""
+    identifiers = []
+
+    if 'identifiers' not in result:
+        return identifiers
+
+    for identifier in result['identifiers']:
+        clean_identifier = extract_function_name(str(identifier))
+        if clean_identifier:
+            identifiers.append(clean_identifier)
+
+    return identifiers
+
+
+def save_identifiers_to_txt(identifiers: List[str], output_path: str) -> None:
+    """식별자 목록을 텍스트 파일로 저장"""
+    # 출력 디렉토리 생성
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+    try:
+        with open(output_path, 'w', encoding='utf-8') as f:
+            for identifier in identifiers:
+                f.write(f"{identifier}\n")
+    except Exception as e:
+        raise ValueError(f"Failed to save identifiers to {output_path}: {e}")
+
+
+def clean_and_deduplicate_identifiers(identifiers: List[str]) -> List[str]:
+    """식별자 목록을 정리하고 중복 제거 후 정렬"""
+    cleaned = []
+    for identifier in identifiers:
+        clean_id = extract_function_name(str(identifier))
+        if clean_id:  # 빈 문자열 제외
+            cleaned.append(clean_id)
+
+    # 중복 제거 및 정렬
+    return sorted(list(set(cleaned)))

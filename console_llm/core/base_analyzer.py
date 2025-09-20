@@ -75,14 +75,24 @@ class BaseAnalyzer:
             print(f"Model pre-loading failed: {e}")
             raise
 
-    def load_swingft_config(self, config_path: str) -> Dict[str, Any]:
-        """swingft_config.json 로드"""
+    def load_swingft_config(self, config_path: str = None) -> Dict[str, Any]:
+        """swingft_config.json 로드 (선택사항)"""
+        if not config_path:
+            print("Config file not provided, using minimal configuration")
+            return {"project": {"input": None}}
+
+        if not os.path.exists(config_path):
+            print(f"Warning: Config file not found: {config_path}")
+            return {"project": {"input": None}}
+
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 config = json.load(f)
+            print(f"Config loaded from: {config_path}")
             return config
         except Exception as e:
-            raise ValueError(f"Failed to load config from {config_path}: {e}")
+            print(f"Warning: Failed to load config from {config_path}: {e}")
+            return {"project": {"input": None}}
 
     def run_swift_analyzer(self, swift_file_path: str, analyzer_path: Optional[str] = None) -> Optional[str]:
         """
@@ -220,6 +230,41 @@ class BaseAnalyzer:
         print(f"Found {len(swift_files)} Swift files in project")
         return swift_files
 
+    def resolve_project_path(self, project_path: str = None, config_path: str = None) -> str:
+        """
+        프로젝트 경로 결정 (CLI 인자 우선, 그 다음 config 파일)
+
+        Args:
+            project_path: CLI에서 제공된 프로젝트 경로 (우선순위 높음)
+            config_path: config 파일 경로
+
+        Returns:
+            최종 프로젝트 경로
+
+        Raises:
+            ValueError: 프로젝트 경로를 결정할 수 없는 경우
+        """
+        if project_path:
+            if not os.path.exists(project_path):
+                raise ValueError(f"Project directory not found: {project_path}")
+            if not os.path.isdir(project_path):
+                raise ValueError(f"Project path is not a directory: {project_path}")
+            print(f"Using project path from CLI: {project_path}")
+            return project_path
+
+        # config 파일에서 프로젝트 경로 읽기
+        config = self.load_swingft_config(config_path)
+        project_input_path = config.get('project', {}).get('input')
+
+        if not project_input_path:
+            raise ValueError("프로젝트 경로를 지정해주세요. --project 인자를 사용하거나 config 파일에 project.input을 설정하세요.")
+
+        if not os.path.exists(project_input_path):
+            raise ValueError(f"Project directory from config not found: {project_input_path}")
+
+        print(f"Using project path from config: {project_input_path}")
+        return project_input_path
+
     def generate_analysis(self, swift_file_path: str) -> Dict[str, Any]:
         """
         단일 Swift 파일에 대한 분석 수행 (하위 클래스에서 구현)
@@ -288,13 +333,14 @@ class BaseAnalyzer:
         """
         raise NotImplementedError("Subclasses must implement create_model_input")
 
-    def analyze_project(self, config_path: str, output_dir: str = "./output",
-                        max_workers: int = 4) -> Dict[str, Any]:
+    def analyze_project(self, project_path: str = None, config_path: str = None,
+                        output_dir: str = "./output", max_workers: int = 4) -> Dict[str, Any]:
         """
         전체 프로젝트 분석 (하위 클래스에서 구현)
 
         Args:
-            config_path: swingft_config.json 경로
+            project_path: Swift 프로젝트 디렉토리 경로 (우선순위 높음)
+            config_path: swingft_config.json 경로 (선택사항)
             output_dir: 출력 디렉토리
             max_workers: 병렬 처리 워커 수
 

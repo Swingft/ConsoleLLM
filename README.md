@@ -1,17 +1,17 @@
 # ConsoleLLM
 
-**Swift 코드 분석 시스템 - LLM 기반 난독화 제외 대상 및 보안 취약점 분석**
+**Swift 코드 분석 시스템 - LLM 기반 난독화 제외 대상 및 보안 민감 로직 식별자 분석**
 
-ConsoleLLM은 LLM(Large Language Model)을 활용하여 Swift 코드의 보안 취약점과 난독화 제외 대상을 식별하는 모듈화된 분석 시스템입니다.
+ConsoleLLM은 LLM(Large Language Model)을 활용하여 Swift 코드의 보안 민감 로직 식별자와 난독화 제외 대상을 식별하는 모듈화된 분석 시스템입니다. 메모리 효율성을 위해 4비트 K_M 방식으로 양자화된 모델을 사용합니다.
 
 ## 주요 기능
 
 - **Exclude 모드**: 난독화에서 제외되어야 할 식별자 분석
-- **Sensitive 모드**: 보안 취약점 및 민감한 식별자 분석
+- **Sensitive 모드**: 보안 민감 로직 식별자 분석
 - **Metal GPU 가속**: Apple Silicon에서 Metal GPU 활용 지원
-- **LoRA 어댑터**: 모드별 전용 파인튜닝된 모델 사용
 - **병렬 처리**: 멀티 워커를 통한 효율적인 파일 처리
 - **AST 분석**: Swift AST를 활용한 정밀한 코드 분석
+- **4비트 양자화**: 베이스 모델과 LoRA 어댑터 모두 4비트 K_M 방식으로 양자화하여 메모리 효율성 극대화
 
 ## 시스템 요구사항
 
@@ -68,41 +68,28 @@ CONDA_SUBDIR=osx-arm64 conda create -n consolellm_arm64 python=3.10 -c conda-for
 conda activate consolellm_arm64
 ```
 
-### 2. Dependencies Installation
+### 2. 의존성 설치
 
 #### Apple Silicon Mac
 ```bash
-# Option 1: Install via conda (recommended)
+# 옵션 1: conda를 통한 설치 (권장)
 conda search llama-cpp-python -c conda-forge
-conda install -c conda-forge llama-cpp-python=0.3.16  # Latest available version
+conda install -c conda-forge llama-cpp-python=0.3.16  # 사용 가능한 최신 버전
 
-# Option 2: Install via pip with Metal support (alternative)
+# 옵션 2: Metal 지원 pip 설치 (대안)
 pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/metal
 
-# Install ConsoleLLM
+# ConsoleLLM 설치
 pip install -e .
 ```
 
 #### Intel Mac
 ```bash
-# CPU-only llama-cpp-python installation
+# CPU 전용 llama-cpp-python 설치
 conda install -c conda-forge llama-cpp-python
 
-# Install ConsoleLLM
+# ConsoleLLM 설치
 pip install -e .
-```
-
-### 3. AST 분석기 설정
-
-AST 분석기 실행 파일이 올바른 위치에 있는지 확인:
-
-```bash
-# 실행 권한 확인 및 부여
-chmod +x console_llm/ast_analyzers/exclude/SwiftASTAnalyzer
-chmod +x console_llm/ast_analyzers/sensitive/SwiftASTAnalyzer
-
-# 실행 파일 확인
-file console_llm/ast_analyzers/sensitive/SwiftASTAnalyzer
 ```
 
 ## 사용 방법
@@ -331,17 +318,7 @@ result = quick_sensitive_analysis(
 --ctx 8192             # 작은 컨텍스트
 --threads 8            # CPU 코어 수
 --max_workers 1        # 안정성 우선
-```
-
-### 메모리 절약 설정
-
-메모리 부족 시:
-```bash
---gpu_layers 8
---ctx 4096
---disable_4bit_kv_cache
---max_workers 1
---threads 2
+--enable_4bit_kv_cache
 ```
 
 ## 출력 결과
@@ -381,6 +358,140 @@ result = quick_sensitive_analysis(
 }
 ```
 
+## 내부망 배포 (Offline/Internal Network Deployment)
+
+인터넷 연결이 제한된 내부망 환경을 위해, 모든 의존성과 모델이 포함된 올인원(All-in-one) 패키지를 제공합니다. 각 아키텍처에 맞는 패키지를 사용해 쉽게 배포할 수 있습니다.
+
+### 패키지 구조
+
+#### Intel Mac용 패키지
+```
+ConsoleLLM_Intel.zip
+├── console_llm/                    # ConsoleLLM 소스 코드
+├── dependencies/                   # 오프라인 의존성
+│   └── llama_cpp_python-*.whl     # Intel Mac용 wheel 파일
+├── models/                         # AI 모델 파일
+│   ├── base_model.gguf
+│   ├── lora_exclude.gguf
+│   └── lora_sensitive.gguf
+├── install_intel.sh               # Intel Mac 설치 스크립트
+├── setup.py                       # 패키지 설정
+├── requirements.txt               # 의존성 목록
+└── README_Intel.md                # Intel Mac 전용 설명서
+```
+
+#### Apple Silicon용 패키지
+```
+ConsoleLLM_AppleSilicon.zip
+├── console_llm/                    # ConsoleLLM 소스 코드
+├── dependencies/                   # 오프라인 의존성
+│   └── llama_cpp_python-*.whl     # Apple Silicon용 wheel 파일
+├── models/                         # AI 모델 파일
+│   ├── base_model.gguf
+│   ├── lora_exclude.gguf
+│   └── lora_sensitive.gguf
+├── install_apple.sh               # Apple Silicon 설치 스크립트
+├── setup.py                       # 패키지 설정
+├── requirements.txt               # 의존성 목록
+└── README_AppleSilicon.md          # Apple Silicon 전용 설명서
+```
+
+### 배포 절차
+
+#### 1. 패키지 전달 및 압축 해제
+아키텍처에 맞는 패키지 파일(`.zip`)을 대상 서버나 PC에 전달한 후, 원하는 위치에 압축을 해제합니다.
+
+```bash
+# 패키지 압축 해제
+unzip ConsoleLLM_AppleSilicon.zip  # 또는 ConsoleLLM_Intel.zip
+cd ConsoleLLM_AppleSilicon          # 압축 해제된 폴더로 이동
+```
+
+#### 2. 설치 스크립트 실행
+터미널을 열고 압축 해제된 폴더로 이동한 뒤, 환경에 맞는 설치 스크립트를 실행합니다. 이 스크립트는 패키지 내부에 포함된 `.whl` 파일을 사용하여 오프라인으로 핵심 의존성을 설치하고 `ConsoleLLM`을 시스템에 등록합니다.
+
+**Apple Silicon Mac**:
+```bash
+# 스크립트 실행 권한 부여 (필요시)
+chmod +x install_apple.sh
+
+# 설치 진행
+bash install_apple.sh
+```
+
+**Intel Mac**:
+```bash
+# 스크립트 실행 권한 부여 (필요시)
+chmod +x install_intel.sh
+
+# 설치 진행
+bash install_intel.sh
+```
+
+#### 3. 설치 확인
+설치가 완료되면 `console-llm --help` 명령어를 실행하여 프로그램이 정상적으로 인식되는지 확인합니다.
+
+```bash
+console-llm --help
+```
+
+### 설치 스크립트 내부 동작
+
+#### `install_apple.sh` 스크립트 예시
+Apple Silicon용 설치 스크립트는 내부적으로 다음과 같은 작업을 수행하여 설치 과정을 자동화합니다:
+
+```bash
+#!/bin/bash
+# Apple Silicon용 ConsoleLLM 설치 스크립트
+
+echo "🚀 Apple Silicon용 ConsoleLLM 설치를 시작합니다."
+
+# 1. 패키지에 포함된 오프라인 의존성 설치
+echo "📦 오프라인 의존성을 설치합니다: llama-cpp-python"
+pip install dependencies/llama_cpp_python-*-macosx_11_0_arm64.whl
+
+# 2. ConsoleLLM 패키지 설치 (개발 모드)
+echo "🔧 ConsoleLLM을 설치합니다."
+pip install -e .
+
+# 3. AST 분석기에 실행 권한 부여
+echo "🔑 AST 분석기에 실행 권한을 부여합니다."
+chmod +x console_llm/ast_analyzers/*/SwiftASTAnalyzer
+
+echo "✅ 설치가 완료되었습니다. 'console-llm --help' 명령어로 사용법을 확인하세요."
+```
+
+#### `install_intel.sh` 스크립트 예시
+Intel Mac용 설치 스크립트도 유사한 구조로 동작합니다:
+
+```bash
+#!/bin/bash
+# Intel Mac용 ConsoleLLM 설치 스크립트
+
+echo "🚀 Intel Mac용 ConsoleLLM 설치를 시작합니다."
+
+# 1. 패키지에 포함된 오프라인 의존성 설치
+echo "📦 오프라인 의존성을 설치합니다: llama-cpp-python"
+pip install dependencies/llama_cpp_python-*-macosx_10_16_x86_64.whl
+
+# 2. ConsoleLLM 패키지 설치 (개발 모드)
+echo "🔧 ConsoleLLM을 설치합니다."
+pip install -e .
+
+# 3. AST 분석기에 실행 권한 부여
+echo "🔑 AST 분석기에 실행 권한을 부여합니다."
+chmod +x console_llm/ast_analyzers/*/SwiftASTAnalyzer
+
+echo "✅ 설치가 완료되었습니다. 'console-llm --help' 명령어로 사용법을 확인하세요."
+```
+
+### 내부망 배포 시 주의사항
+
+1. **Python 환경**: 대상 시스템에 Python 3.8 이상이 설치되어 있어야 합니다.
+2. **아키텍처 확인**: Intel Mac과 Apple Silicon Mac용 패키지가 다르므로 올바른 패키지를 사용해야 합니다.
+3. **권한 설정**: 설치 스크립트와 AST 분석기 실행파일에 적절한 권한이 필요합니다.
+4. **모델 파일 경로**: 설치 후 모델 파일들이 올바른 경로에 위치하는지 확인해야 합니다.
+
 ## 문제 해결
 
 ### 일반적인 오류
@@ -392,7 +503,6 @@ result = quick_sensitive_analysis(
 --max_workers 1
 --gpu_layers 8
 --ctx 8192
---disable_4bit_kv_cache
 ```
 
 #### 2. Context Window Exceeded
@@ -427,33 +537,6 @@ chmod +x console_llm/ast_analyzers/*/SwiftASTAnalyzer
 1. 워커 수 감소: `--max_workers 1`
 2. 컨텍스트 크기 감소: `--ctx 8192`
 3. GPU 레이어 수 감소: `--gpu_layers 8`
-
-## 내부망 배포
-
-### Intel Mac용 패키지
-```
-ConsoleLLM_Intel/
-├── console_llm/
-├── dependencies/
-│   └── llama_cpp_python-0.2.24-cp310-macosx_10_16_x86_64.whl
-├── models/
-│   ├── base_model.gguf
-│   ├── lora_exclude.gguf
-│   └── lora_sensitive.gguf
-├── install_intel.sh
-└── README_Intel.md
-```
-
-### Apple Silicon용 패키지
-```
-ConsoleLLM_AppleSilicon/
-├── console_llm/
-├── dependencies/
-│   └── llama_cpp_python-0.3.16-cp310-macosx_11_0_arm64.whl
-├── models/
-├── install_apple.sh
-└── README_AppleSilicon.md
-```
 
 ## 개발 가이드
 

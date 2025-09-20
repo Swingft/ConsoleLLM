@@ -4,7 +4,7 @@
 """
 exclude_analyzer.py
 
-Exclude 모드 전용 분석기 - 모듈화된 버전
+Exclude 모드 전용 분석기 - save_individual_files 옵션 추가 버전
 """
 
 import os
@@ -16,6 +16,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 from ..core.base_analyzer import BaseAnalyzer
 from ..core.model_loader import OptimizedModelLoader
+from ..core.utils import (
+    extract_symbol_names_from_exclude_result,
+    save_identifiers_to_txt,
+    clean_and_deduplicate_identifiers
+)
 
 
 class ExcludeAnalyzer(BaseAnalyzer):
@@ -85,25 +90,26 @@ Task: Identify which identifiers should be excluded from obfuscation and return 
 
         return system_prompt, user_prompt
 
-    def analyze_project(self, config_path: str, output_dir: str = "./output_exclude",
-                        max_workers: int = 4) -> Dict[str, Any]:
+    def analyze_project(self, project_path: str = None, config_path: str = None,
+                        output_dir: str = "./output_exclude", max_workers: int = 4,
+                        save_individual_files: bool = False) -> Dict[str, Any]:
         """
         전체 프로젝트 난독화 제외 분석
 
         Args:
-            config_path: swingft_config.json 경로
+            project_path: Swift 프로젝트 디렉토리 경로 (우선순위 높음)
+            config_path: swingft_config.json 경로 (선택사항)
             output_dir: 출력 디렉토리
             max_workers: 병렬 처리 워커 수
+            save_individual_files: 개별 JSON 파일 저장 여부
 
         Returns:
             분석 결과 요약
         """
         print(f"\n=== ExcludeAnalyzer: 난독화 제외 대상 분석 시작 ===")
 
-        config = self.load_swingft_config(config_path)
-        project_input_path = config['project']['input']
-
-        print(f"Project path: {project_input_path}")
+        # 프로젝트 경로 결정 (CLI 인자 우선, 그 다음 config 파일)
+        project_input_path = self.resolve_project_path(project_path, config_path)
 
         swift_files = self.get_all_swift_files(project_input_path)
 
@@ -112,6 +118,10 @@ Task: Identify which identifiers should be excluded from obfuscation and return 
             return {"files_analyzed": 0, "results": []}
 
         os.makedirs(output_dir, exist_ok=True)
+
+        # 개별 파일 저장 모드 알림
+        if save_individual_files:
+            print(f"Debug mode: 개별 JSON 파일들도 {output_dir}에 저장됩니다.")
 
         # 병렬 처리 시작 전에 모델을 메인 메모리에 미리 로드합니다.
         self.preload_model()
@@ -131,11 +141,13 @@ Task: Identify which identifiers should be excluded from obfuscation and return 
                     result = future.result()
                     results.append(result)
 
-                    filename = os.path.basename(swift_file).replace('.swift', '_exclude.json')
-                    output_path = os.path.join(output_dir, filename)
+                    # 개별 JSON 파일 저장 (조건부)
+                    if save_individual_files:
+                        filename = os.path.basename(swift_file).replace('.swift', '_exclude.json')
+                        output_path = os.path.join(output_dir, filename)
 
-                    with open(output_path, 'w', encoding='utf-8') as f:
-                        json.dump(result, f, ensure_ascii=False, indent=2)
+                        with open(output_path, 'w', encoding='utf-8') as f:
+                            json.dump(result, f, ensure_ascii=False, indent=2)
 
                     if 'error' in result:
                         print(f"✗ {os.path.basename(swift_file)}: {result['error']}")
@@ -153,23 +165,38 @@ Task: Identify which identifiers should be excluded from obfuscation and return 
 
         successful_results = [r for r in results if 'error' not in r]
         failed_results = [r for r in results if 'error' in r]
-        total_exclude_identifiers = sum(len(r['identifiers']) for r in successful_results)
 
-        all_exclude_identifiers = []
+        # symbol_name들 추출
+        all_symbol_names = []
         for result in successful_results:
-            all_exclude_identifiers.extend(result['identifiers'])
-        unique_exclude_identifiers = list(set(all_exclude_identifiers))
+            symbol_names = extract_symbol_names_from_exclude_result(result)
+            all_symbol_names.extend(symbol_names)
 
+        # 중복 제거하고 정렬
+        unique_symbol_names = clean_and_deduplicate_identifiers(all_symbol_names)
+
+        # exclude_id.txt 파일로 저장 (항상 생성)
+        exclude_txt_path = os.path.join(output_dir, "exclude_id.txt")
+        save_identifiers_to_txt(unique_symbol_names, exclude_txt_path)
+
+        # 기존 통계 계산 (호환성 유지)
+        total_exclude_identifiers = len(all_symbol_names)
+
+        # 요약 결과 (save_individual_files가 False면 results 제외)
         summary = {
             "mode": "exclude",
             "files_analyzed": len(swift_files),
             "successful": len(successful_results),
             "failed": len(failed_results),
             "total_exclude_identifiers_found": total_exclude_identifiers,
-            "unique_exclude_identifiers": unique_exclude_identifiers,
-            "results": results
+            "unique_exclude_identifiers": unique_symbol_names,
         }
 
+        # 개별 파일 저장 모드일 때만 results 포함
+        if save_individual_files:
+            summary["results"] = results
+
+        # summary 저장 (항상 생성)
         summary_path = os.path.join(output_dir, "summary_exclude.json")
         with open(summary_path, 'w', encoding='utf-8') as f:
             json.dump(summary, f, ensure_ascii=False, indent=2)
@@ -179,7 +206,11 @@ Task: Identify which identifiers should be excluded from obfuscation and return 
         print(f"Successful: {len(successful_results)}")
         print(f"Failed: {len(failed_results)}")
         print(f"Total exclusion identifiers found: {total_exclude_identifiers}")
-        print(f"Unique exclusion identifiers: {len(unique_exclude_identifiers)}")
+        print(f"Unique exclusion identifiers: {len(unique_symbol_names)}")
         print(f"Results saved to: {output_dir}")
+        print(f"Identifiers saved to: {exclude_txt_path}")
+
+        if save_individual_files:
+            print(f"개별 JSON 파일들도 저장되었습니다.")
 
         return summary

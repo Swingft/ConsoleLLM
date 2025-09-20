@@ -79,16 +79,20 @@ class ConsoleLLM:
         )
 
     def analyze_exclude(self,
-                        config_path: str,
+                        project_path: Optional[str] = None,
+                        config_path: Optional[str] = None,
                         output_dir: Optional[str] = None,
-                        max_workers: int = 4) -> Dict[str, Any]:
+                        max_workers: int = 4,
+                        save_individual_files: bool = False) -> Dict[str, Any]:
         """
         Exclude 모드 분석 실행
 
         Args:
-            config_path: swingft_config.json 경로
+            project_path: Swift 프로젝트 디렉토리 경로 (우선순위 높음)
+            config_path: swingft_config.json 경로 (선택사항)
             output_dir: 출력 디렉토리
             max_workers: 병렬 처리 워커 수
+            save_individual_files: 개별 JSON 파일 저장 여부
 
         Returns:
             분석 결과
@@ -96,8 +100,15 @@ class ConsoleLLM:
         if not self.lora_exclude_path:
             raise ValueError("Exclude LoRA path not provided")
 
+        # 출력 디렉토리 설정
         if output_dir is None:
-            output_dir = f"./output_exclude_{Path(config_path).stem}"
+            if project_path:
+                project_name = Path(project_path).name
+                output_dir = f"./output_exclude_{project_name}"
+            elif config_path:
+                output_dir = f"./output_exclude_{Path(config_path).stem}"
+            else:
+                output_dir = "./output_exclude"
 
         analyzer = ExcludeAnalyzer(
             base_model_path=self.base_model_path,
@@ -107,22 +118,28 @@ class ConsoleLLM:
         )
 
         return analyzer.analyze_project(
+            project_path=project_path,
             config_path=config_path,
             output_dir=output_dir,
-            max_workers=max_workers
+            max_workers=max_workers,
+            save_individual_files=save_individual_files
         )
 
     def analyze_sensitive(self,
-                          config_path: str,
+                          project_path: Optional[str] = None,
+                          config_path: Optional[str] = None,
                           output_dir: Optional[str] = None,
-                          max_workers: int = 4) -> Dict[str, Any]:
+                          max_workers: int = 4,
+                          save_individual_files: bool = False) -> Dict[str, Any]:
         """
         Sensitive 모드 분석 실행
 
         Args:
-            config_path: swingft_config.json 경로
+            project_path: Swift 프로젝트 디렉토리 경로 (우선순위 높음)
+            config_path: swingft_config.json 경로 (선택사항)
             output_dir: 출력 디렉토리
             max_workers: 병렬 처리 워커 수
+            save_individual_files: 개별 JSON 파일 저장 여부
 
         Returns:
             분석 결과
@@ -130,8 +147,15 @@ class ConsoleLLM:
         if not self.lora_sensitive_path:
             raise ValueError("Sensitive LoRA path not provided")
 
+        # 출력 디렉토리 설정
         if output_dir is None:
-            output_dir = f"./output_sensitive_{Path(config_path).stem}"
+            if project_path:
+                project_name = Path(project_path).name
+                output_dir = f"./output_sensitive_{project_name}"
+            elif config_path:
+                output_dir = f"./output_sensitive_{Path(config_path).stem}"
+            else:
+                output_dir = "./output_sensitive"
 
         analyzer = SensitiveAnalyzer(
             base_model_path=self.base_model_path,
@@ -141,84 +165,118 @@ class ConsoleLLM:
         )
 
         return analyzer.analyze_project(
+            project_path=project_path,
             config_path=config_path,
             output_dir=output_dir,
-            max_workers=max_workers
+            max_workers=max_workers,
+            save_individual_files=save_individual_files
         )
 
     def analyze_both(self,
-                     config_path: str,
+                     project_path: Optional[str] = None,
+                     config_path: Optional[str] = None,
                      output_base_dir: Optional[str] = None,
-                     max_workers: int = 4) -> Dict[str, Dict[str, Any]]:
+                     max_workers: int = 4,
+                     save_individual_files: bool = False) -> Dict[str, Dict[str, Any]]:
         """
         Exclude와 Sensitive 모드 모두 실행
 
         Args:
-            config_path: swingft_config.json 경로
+            project_path: Swift 프로젝트 디렉토리 경로 (우선순위 높음)
+            config_path: swingft_config.json 경로 (선택사항)
             output_base_dir: 기본 출력 디렉토리
             max_workers: 병렬 처리 워커 수
+            save_individual_files: 개별 JSON 파일 저장 여부
 
         Returns:
             {'exclude': exclude_results, 'sensitive': sensitive_results}
         """
         results = {}
 
+        # 출력 디렉토리 설정
         if output_base_dir is None:
-            output_base_dir = f"./output_{Path(config_path).stem}"
+            if project_path:
+                project_name = Path(project_path).name
+                output_base_dir = f"./output_{project_name}"
+            elif config_path:
+                output_base_dir = f"./output_{Path(config_path).stem}"
+            else:
+                output_base_dir = "./output"
 
         if self.lora_exclude_path:
             exclude_output = os.path.join(output_base_dir, "exclude")
             results['exclude'] = self.analyze_exclude(
+                project_path=project_path,
                 config_path=config_path,
                 output_dir=exclude_output,
-                max_workers=max_workers
+                max_workers=max_workers,
+                save_individual_files=save_individual_files
             )
 
         if self.lora_sensitive_path:
             sensitive_output = os.path.join(output_base_dir, "sensitive")
             results['sensitive'] = self.analyze_sensitive(
+                project_path=project_path,
                 config_path=config_path,
                 output_dir=sensitive_output,
-                max_workers=max_workers
+                max_workers=max_workers,
+                save_individual_files=save_individual_files
             )
 
         return results
 
     def analyze_batch(self,
-                      config_paths: List[str],
+                      project_paths: List[str] = None,
+                      config_paths: List[str] = None,
                       output_base_dir: Optional[str] = None,
-                      max_workers: int = 4) -> Dict[str, Dict[str, Any]]:
+                      max_workers: int = 4,
+                      save_individual_files: bool = False) -> Dict[str, Dict[str, Any]]:
         """
-        여러 설정 파일에 대해 배치 분석 실행
+        여러 프로젝트에 대해 배치 분석 실행
 
         Args:
-            config_paths: 설정 파일 경로 리스트
+            project_paths: 프로젝트 디렉토리 경로 리스트
+            config_paths: 설정 파일 경로 리스트 (project_paths와 매칭)
             output_base_dir: 기본 출력 디렉토리
             max_workers: 병렬 처리 워커 수
+            save_individual_files: 개별 JSON 파일 저장 여부
 
         Returns:
-            각 설정 파일별 분석 결과
+            각 프로젝트별 분석 결과
         """
         results = {}
 
-        for config_path in config_paths:
-            config_name = Path(config_path).stem
-            print(f"\n=== Processing {config_name} ===")
+        if not project_paths:
+            raise ValueError("project_paths가 필요합니다")
+
+        # config_paths가 없으면 None 리스트로 채움
+        if not config_paths:
+            config_paths = [None] * len(project_paths)
+        elif len(config_paths) != len(project_paths):
+            raise ValueError("project_paths와 config_paths의 길이가 일치해야 합니다")
+
+        for i, project_path in enumerate(project_paths):
+            config_path = config_paths[i] if i < len(config_paths) else None
+            project_name = Path(project_path).name
+
+            print(f"\n=== Processing {project_name} ===")
 
             if output_base_dir:
-                output_dir = os.path.join(output_base_dir, config_name)
+                output_dir = os.path.join(output_base_dir, project_name)
             else:
                 output_dir = None
 
             try:
-                results[config_name] = self.analyze_both(
+                results[project_name] = self.analyze_both(
+                    project_path=project_path,
                     config_path=config_path,
                     output_base_dir=output_dir,
-                    max_workers=max_workers
+                    max_workers=max_workers,
+                    save_individual_files=save_individual_files
                 )
             except Exception as e:
-                print(f"Error processing {config_name}: {e}")
-                results[config_name] = {"error": str(e)}
+                print(f"Error processing {project_name}: {e}")
+                results[project_name] = {"error": str(e)}
 
         return results
 
@@ -237,11 +295,13 @@ class ConsoleLLM:
         }
 
 
-# 편의 함수들
+# 편의 함수들 (하위 호환성 유지)
 def quick_exclude_analysis(base_model_path: str,
                            lora_exclude_path: str,
-                           config_path: str,
-                           output_dir: Optional[str] = None) -> Dict[str, Any]:
+                           project_path: str = None,
+                           config_path: str = None,
+                           output_dir: Optional[str] = None,
+                           save_individual_files: bool = False) -> Dict[str, Any]:
     """빠른 Exclude 분석"""
     analyzer = ConsoleLLM(
         base_model_path=base_model_path,
@@ -249,13 +309,15 @@ def quick_exclude_analysis(base_model_path: str,
         lora_sensitive_path=None,
         auto_preload=True
     )
-    return analyzer.analyze_exclude(config_path, output_dir)
+    return analyzer.analyze_exclude(project_path, config_path, output_dir, save_individual_files=save_individual_files)
 
 
 def quick_sensitive_analysis(base_model_path: str,
                              lora_sensitive_path: str,
-                             config_path: str,
-                             output_dir: Optional[str] = None) -> Dict[str, Any]:
+                             project_path: str = None,
+                             config_path: str = None,
+                             output_dir: Optional[str] = None,
+                             save_individual_files: bool = False) -> Dict[str, Any]:
     """빠른 Sensitive 분석"""
     analyzer = ConsoleLLM(
         base_model_path=base_model_path,
@@ -263,4 +325,4 @@ def quick_sensitive_analysis(base_model_path: str,
         lora_sensitive_path=lora_sensitive_path,
         auto_preload=True
     )
-    return analyzer.analyze_sensitive(config_path, output_dir)
+    return analyzer.analyze_sensitive(project_path, config_path, output_dir, save_individual_files=save_individual_files)
