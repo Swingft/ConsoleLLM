@@ -4,11 +4,12 @@
 """
 sensitive_analyzer.py
 
-Sensitive 모드 전용 분석기 - save_individual_files 옵션 추가 버전
+Sensitive 모드 전용 분석기 - 학습 데이터와 동일한 프롬프트 구조로 수정
 """
 
 import os
 import json
+import re
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 import concurrent.futures
@@ -42,6 +43,7 @@ class SensitiveAnalyzer(BaseAnalyzer):
     def create_model_input(self, swift_file_path: str, ast_json: str) -> tuple[str, str]:
         """
         보안 분석용 모델 입력 프롬프트 생성
+        학습 데이터와 동일한 구조로 수정
 
         Args:
             swift_file_path: Swift 파일 경로
@@ -56,37 +58,76 @@ class SensitiveAnalyzer(BaseAnalyzer):
         except Exception:
             swift_code = "// Could not read source code"
 
-        system_prompt = """You are an expert security code auditor.
-Your task is to identify all sensitive identifiers in the provided Swift code and explain your reasoning.
-Analyze both the source code and its corresponding AST symbol information.
+        # 학습 데이터와 동일한 구조로 system prompt 설정 (빈 문자열)
+        system_prompt = ""
 
-Focus on identifying:
-- Security-sensitive functions (authentication, encryption, data storage)
-- API keys, tokens, passwords, or sensitive data variables
-- Network communication functions that handle sensitive data
-- Database operations with sensitive information
-- Keychain operations
-- Biometric authentication functions
-- Any identifiers that could expose security vulnerabilities
+        # 학습 데이터와 동일한 instruction 사용
+        instruction = "In the following Swift code, find all identifiers related to sensitive logic. Provide the names and reasoning as a JSON object."
 
-Based on your analysis, provide your response as a JSON object with two keys: "reasoning" and "identifiers".
+        # 학습 데이터와 동일한 input 형식으로 구성
+        # create_alpaca_input 함수와 동일한 형식 사용
+        try:
+            symbol_info_pretty = json.dumps(json.loads(ast_json), indent=2, ensure_ascii=False)
+        except (json.JSONDecodeError, TypeError):
+            symbol_info_pretty = ast_json
 
-"reasoning": A step-by-step explanation of why the identified identifiers are considered sensitive. For secure code, explain why it is safe.
-"identifiers": A JSON list of strings containing only the base name of each sensitive identifier. For secure code, this should be an empty list [].
-
-Your response must be ONLY the JSON object."""
-
-        user_prompt = f"""**Swift Source Code:**swift
+        input_content = f"""**Swift Source Code:**
+```swift
 {swift_code}
+```
 
+**AST Symbol Information (JSON):**
+```
+{symbol_info_pretty}
+```"""
 
-**AST Symbol Information (JSON):**json
-{ast_json}
-
-
-Task: Perform a security audit on the above Swift code and return ONLY a JSON object with 'reasoning' and 'identifiers' keys. Focus on finding security-sensitive identifiers."""
+        # 전체 프롬프트를 user_prompt로 구성
+        user_prompt = f"{instruction}\n\n{input_content}"
 
         return system_prompt, user_prompt
+
+    def extract_json_from_output(self, text: str) -> tuple[str, List[str]]:
+        """
+        모델 출력에서 JSON 추출 및 파싱
+        Sensitive 모드에 맞게 수정 - reasoning과 identifiers 구조 처리
+        """
+        if not text:
+            return "", []
+
+        try:
+            # JSON 블록 찾기
+            start_index = text.find('{')
+            end_index = text.rfind('}')
+            if start_index != -1 and end_index != -1 and start_index < end_index:
+                json_str = text[start_index:end_index + 1]
+                data = json.loads(json_str)
+
+                reasoning = data.get("reasoning", "")
+                identifiers = data.get("identifiers", [])
+
+                if isinstance(reasoning, str) and isinstance(identifiers, list):
+                    return reasoning, [str(item) for item in identifiers]
+        except (json.JSONDecodeError, AttributeError):
+            pass
+
+        # Fallback 처리
+        reasoning_str = ""
+        identifiers_list = []
+
+        # reasoning 추출
+        reasoning_match = re.search(r'["\']reasoning["\']\s*:\s*["\'](.*?)["\']', text, re.DOTALL)
+        if reasoning_match:
+            reasoning_str = reasoning_match.group(1).strip()
+
+        # identifiers 추출
+        identifiers_match = re.search(r'["\']identifiers["\']\s*:\s*\[(.*?)\]', text, re.DOTALL)
+        if identifiers_match:
+            content_str = identifiers_match.group(1).strip()
+            if content_str:
+                items = content_str.split(',')
+                identifiers_list = [item.strip().strip('"\' ') for item in items if item.strip()]
+
+        return reasoning_str, identifiers_list
 
     def analyze_project(self, project_path: str = None, config_path: str = None,
                         output_dir: str = "./output_sensitive", max_workers: int = 4,

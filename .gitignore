@@ -13,5 +13,14 @@ lora_sensitive.gguf
 lora_exclude.gguf
 
 # Test & Output Directories
-test_project/
+test_project1/
+test_project2/
+test_project3/
+test_project4/
+test_project5/
+test_project6/
+test_project7/
+test_project8/
+test_project9/
+test_project10/
 output/

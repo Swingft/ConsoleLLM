@@ -4,11 +4,12 @@
 """
 exclude_analyzer.py
 
-Exclude 모드 전용 분석기 - save_individual_files 옵션 추가 버전
+Exclude 모드 전용 분석기 - 학습 데이터와 동일한 프롬프트 구조로 수정
 """
 
 import os
 import json
+import re
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 import concurrent.futures
@@ -42,6 +43,7 @@ class ExcludeAnalyzer(BaseAnalyzer):
     def create_model_input(self, swift_file_path: str, ast_json: str) -> tuple[str, str]:
         """
         난독화 제외 분석용 모델 입력 프롬프트 생성
+        학습 데이터와 동일한 구조로 수정
 
         Args:
             swift_file_path: Swift 파일 경로
@@ -56,39 +58,80 @@ class ExcludeAnalyzer(BaseAnalyzer):
         except Exception:
             swift_code = "// Could not read source code"
 
-        system_prompt = """You are an expert code obfuscation specialist.
-Your task is to identify which identifiers in the Swift code should be excluded from obfuscation based on the provided AST analysis.
+        # AST JSON을 딕셔너리로 파싱
+        try:
+            symbol_info_dict = json.loads(ast_json)
+        except json.JSONDecodeError:
+            symbol_info_dict = {}
 
-Identifiers that should typically be excluded from obfuscation include:
-- Framework and library method names (UIKit, Foundation, etc.)
-- Protocol methods that must match specific signatures
-- Objective-C exposed methods (@objc)
-- IBOutlet and IBAction names
-- Property wrappers (@Published, @State, etc.)
-- External API interface methods
-- Delegate protocol methods
-- Notification names and keys
-- Core Data entity and attribute names
-- Any identifiers that break functionality when renamed
+        # 학습 데이터와 동일한 구조로 system prompt 설정
+        system_prompt = ""
 
-Based on your analysis, provide your response as a JSON object with two keys: "reasoning" and "identifiers".
+        # 학습 데이터와 동일한 instruction 사용
+        instruction = "Identify which identifiers in the Swift code should be excluded from obfuscation based on the provided AST analysis, and provide detailed reasoning."
 
-"reasoning": A step-by-step explanation of why the identified identifiers should be excluded from obfuscation.
-"identifiers": A JSON list of strings containing only the base name of each identifier that should be excluded from obfuscation.
+        # 학습 데이터와 동일한 input 구조 (딕셔너리 형태)
+        input_data = {
+            "swift_code": swift_code,
+            "symbol_info": symbol_info_dict
+        }
 
-Your response must be ONLY the JSON object."""
-
-        user_prompt = f"""**Swift Source Code:**swift
-{swift_code}
-
-
-**AST Symbol Information (JSON):**json
-{ast_json}
-
-
-Task: Identify which identifiers should be excluded from obfuscation and return ONLY a JSON object with 'reasoning' and 'identifiers' keys. Focus on preserving functionality and external interfaces."""
+        # 전체 프롬프트를 user_prompt로 구성
+        user_prompt = f"{instruction}\n\nInput: {json.dumps(input_data, ensure_ascii=False, indent=2)}"
 
         return system_prompt, user_prompt
+
+    def extract_json_from_output(self, text: str) -> tuple[str, List[str]]:
+        """
+        모델 출력에서 JSON 추출 및 파싱
+        Exclude 모드에 맞게 수정 - exclusions 구조 처리
+        """
+        if not text:
+            return "", []
+
+        try:
+            # JSON 블록 찾기
+            start_index = text.find('{')
+            end_index = text.rfind('}')
+            if start_index != -1 and end_index != -1 and start_index < end_index:
+                json_str = text[start_index:end_index + 1]
+                data = json.loads(json_str)
+
+                reasoning = data.get("reasoning", "")
+                exclusions = data.get("exclusions", [])
+
+                # exclusions에서 identifier 추출
+                identifiers = []
+                for exclusion in exclusions:
+                    if isinstance(exclusion, dict) and "identifier" in exclusion:
+                        identifiers.append(exclusion["identifier"])
+                    elif isinstance(exclusion, str):
+                        identifiers.append(exclusion)
+
+                if isinstance(reasoning, str) and isinstance(identifiers, list):
+                    return reasoning, [str(item) for item in identifiers]
+        except (json.JSONDecodeError, AttributeError):
+            pass
+
+        # Fallback 처리
+        reasoning_str = ""
+        identifiers_list = []
+
+        # reasoning 추출
+        reasoning_match = re.search(r'["\']reasoning["\']\s*:\s*["\'](.*?)["\']', text, re.DOTALL)
+        if reasoning_match:
+            reasoning_str = reasoning_match.group(1).strip()
+
+        # exclusions에서 identifier 추출 시도
+        exclusions_match = re.search(r'["\']exclusions["\']\s*:\s*\[(.*?)\]', text, re.DOTALL)
+        if exclusions_match:
+            content_str = exclusions_match.group(1).strip()
+            if content_str:
+                # JSON 객체들을 찾아서 identifier 추출
+                identifier_matches = re.findall(r'["\']identifier["\']\s*:\s*["\']([^"\']+)["\']', content_str)
+                identifiers_list = identifier_matches
+
+        return reasoning_str, identifiers_list
 
     def analyze_project(self, project_path: str = None, config_path: str = None,
                         output_dir: str = "./output_exclude", max_workers: int = 4,

@@ -1,0 +1,3 @@
+ConfettiSwiftUITests
+path
+previews

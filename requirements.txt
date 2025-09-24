@@ -1,2 +1,17 @@
-# ConsoleLLM 의존성 (Metal 지원)
-llama-cpp-python>=0.2.20
+# Enhanced ConsoleLLM Requirements
+# 자동 최적화 및 동적 컨텍스트 기능 지원 (Metal 지원)
+
+# 기존 필수 라이브러리 (Metal 지원)
+llama-cpp-python>=0.2.20  # Metal 지원을 위한 최신 버전
+
+# 새로 추가된 라이브러리 (자동 최적화용)
+psutil>=5.9.0          # 시스템 하드웨어 정보 수집
+tiktoken>=0.5.0        # 토큰 수 계산
+platform               # 플랫폼 정보 (내장 모듈)
+
+# 선택적 라이브러리 (성능 향상)
+numpy>=1.21.0          # 수치 계산 최적화
+concurrent.futures     # 병렬 처리 (Python 3.2+ 내장)
+
+# 개발 및 디버깅용
+typing_extensions>=4.0.0  # 타입 힌트 지원
