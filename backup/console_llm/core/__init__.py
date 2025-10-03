@@ -1,4 +1,3 @@
-# console_llm/core/__init__.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -17,11 +16,7 @@ from .utils import (
     get_relative_path,
     ensure_directory,
     format_file_size,
-    get_swift_files_count,
-    extract_symbol_names_from_exclude_result,
-    extract_sensitive_identifiers,
-    save_identifiers_to_txt,
-    clean_and_deduplicate_identifiers
+    get_swift_files_count
 )
 
 __all__ = [
@@ -40,9 +35,5 @@ __all__ = [
     'get_relative_path',
     'ensure_directory',
     'format_file_size',
-    'get_swift_files_count',
-    'extract_symbol_names_from_exclude_result',
-    'extract_sensitive_identifiers',
-    'save_identifiers_to_txt',
-    'clean_and_deduplicate_identifiers'
+    'get_swift_files_count'
 ]

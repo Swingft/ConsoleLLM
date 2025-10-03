@@ -1,8 +1,4 @@
-# console_llm/__init__.py
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-__version__ = "1.1.0"
+__version__ = "1.0.0"
 __author__ = "ConsoleLLM Team"
 __license__ = "MIT"
 
@@ -46,11 +42,5 @@ def get_info():
         "version": __version__,
         "author": __author__,
         "license": __license__,
-        "description": "Swift/Header 코드 분석 시스템 - Header와 Swift 파일 구분 처리 지원",
-        "features": [
-            "Header 파일 exclude 분석 (스마트 분할 지원)",
-            "Swift 파일 exclude 분석 (AST 기반)",
-            "Swift 파일 sensitive 분석",
-            "3개 LoRA 어댑터 지원 (header, swift, sensitive)"
-        ]
+        "description": "Swift 코드 분석 시스템"
     }

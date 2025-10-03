@@ -4,7 +4,7 @@
 """
 cli.py
 
-ConsoleLLM CLI 인터페이스
+ConsoleLLM CLI 인터페이스 - Header 지원 추가
 """
 
 import argparse
@@ -18,27 +18,33 @@ from .api import ConsoleLLM
 def main():
     """CLI 메인 함수"""
     parser = argparse.ArgumentParser(
-        description="ConsoleLLM - Swift AST 분석 시스템",
-        epilog="Example: console-llm --mode sensitive --project ./MyProject --base_model ./base_model.gguf --config ./swingft_config.json"
+        description="ConsoleLLM - Swift/Header AST 분석 시스템",
+        epilog="Example: console-llm --mode exclude --file_types both --project ./MyProject --base_model ./base_model.gguf --lora_exclude_header ./header.gguf --lora_exclude_swift ./swift.gguf"
     )
 
     # 필수 인수
-    parser.add_argument("--mode", type=str, choices=['sensitive', 'exclude', 'both'], required=True,
-                        help="분석 모드: sensitive, exclude 또는 both")
+    parser.add_argument("--mode", type=str, choices=['sensitive', 'exclude', 'all'], required=True,
+                        help="분석 모드: sensitive, exclude 또는 all")
     parser.add_argument("--project", type=str, required=True,
-                        help="분석할 Swift 프로젝트 디렉토리 경로")
+                        help="분석할 프로젝트 디렉토리 경로")
     parser.add_argument("--base_model", type=str, required=True,
                         help="base_model.gguf 파일 경로")
 
-    # config는 이제 선택사항
+    # config는 선택사항
     parser.add_argument("--config", type=str, required=False,
                         help="swingft_config.json 파일 경로 (선택사항)")
 
-    # LoRA 어댑터
+    # LoRA 어댑터들 (업데이트됨)
+    parser.add_argument("--lora_exclude_header", type=str,
+                        help="lora_exclude_header.gguf 파일 경로 (Header 파일용)")
+    parser.add_argument("--lora_exclude_swift", type=str,
+                        help="lora_exclude_swift.gguf 파일 경로 (Swift 파일용)")
     parser.add_argument("--lora_sensitive", type=str,
-                        help="lora_sensitive.gguf 파일 경로")
-    parser.add_argument("--lora_exclude", type=str,
-                        help="lora_exclude.gguf 파일 경로")
+                        help="lora_sensitive.gguf 파일 경로 (Swift 파일용)")
+
+    # 파일 타입 선택 (exclude 모드에서만 유효)
+    parser.add_argument("--file_types", type=str, choices=['header', 'swift', 'both'], default='both',
+                        help="exclude 모드에서 처리할 파일 타입 (기본값: both)")
 
     # 출력 설정
     parser.add_argument("--output_dir", type=str, default="./output",
@@ -46,7 +52,7 @@ def main():
     parser.add_argument("--max_workers", type=int, default=4,
                         help="병렬 처리 워커 수 (기본값: 4)")
 
-    # 디버깅 옵션 추가
+    # 디버깅 옵션
     parser.add_argument("--debug", action='store_true',
                         help="디버깅용 개별 JSON 파일들도 저장")
 
@@ -77,13 +83,34 @@ def main():
         print(f"Error: 프로젝트 경로가 디렉토리가 아닙니다: {args.project}", file=sys.stderr)
         sys.exit(1)
 
-    # Swift 파일이 있는지 확인
+    # 모드별 LoRA 파일 요구사항 검증
+    if args.mode in ['exclude', 'all']:
+        if args.file_types in ['header', 'both'] and not args.lora_exclude_header:
+            print("Warning: 헤더 파일 처리를 위해서는 --lora_exclude_header가 필요합니다.")
+
+        if args.file_types in ['swift', 'both'] and not args.lora_exclude_swift:
+            print("Warning: Swift 파일 처리를 위해서는 --lora_exclude_swift가 필요합니다.")
+
+        if not args.lora_exclude_header and not args.lora_exclude_swift:
+            print("Error: exclude 모드에는 최소 하나의 exclude LoRA가 필요합니다.", file=sys.stderr)
+            sys.exit(1)
+
+    if args.mode in ['sensitive', 'all'] and not args.lora_sensitive:
+        print("Warning: sensitive 모드에는 --lora_sensitive가 필요합니다.")
+
+    # 파일 존재 여부 확인
     swift_files = []
+    header_files = []
     for root, dirs, files in os.walk(args.project):
         swift_files.extend([f for f in files if f.endswith('.swift')])
+        header_files.extend([f for f in files if f.endswith('.h')])
 
-    if not swift_files:
-        print(f"Warning: 프로젝트 디렉토리에 Swift 파일이 없습니다: {args.project}", file=sys.stderr)
+    print(f"프로젝트에서 발견된 파일:")
+    print(f"  - Swift 파일: {len(swift_files)}개")
+    print(f"  - Header 파일: {len(header_files)}개")
+
+    if not swift_files and not header_files:
+        print(f"Warning: 프로젝트 디렉토리에 Swift나 Header 파일이 없습니다: {args.project}", file=sys.stderr)
 
     # 디버그 모드 알림
     if args.debug:
@@ -93,7 +120,8 @@ def main():
         # ConsoleLLM 초기화
         analyzer = ConsoleLLM(
             base_model_path=args.base_model,
-            lora_exclude_path=args.lora_exclude,
+            lora_exclude_header_path=args.lora_exclude_header,
+            lora_exclude_swift_path=args.lora_exclude_swift,
             lora_sensitive_path=args.lora_sensitive,
             n_ctx=args.ctx,
             n_gpu_layers=args.gpu_layers,
@@ -104,69 +132,98 @@ def main():
 
         # 분석 실행
         if args.mode == 'sensitive':
-            if not args.lora_sensitive:
-                print("Warning: sensitive 모드에는 --lora_sensitive가 필요합니다. base model만 사용합니다.")
-
             print("=== ConsoleLLM: SENSITIVE MODE ===")
             print(f"프로젝트: {args.project}")
             print(f"출력 디렉토리: {args.output_dir}")
+            print(f"대상 파일: Swift 파일만")
 
-            # SensitiveAnalyzer에 save_individual_files 옵션 전달
-            # api.py에서 이 옵션을 받도록 수정해야 함
             results = analyzer.analyze_sensitive(
                 project_path=args.project,
                 config_path=args.config,
                 output_dir=args.output_dir,
                 max_workers=args.max_workers,
-                save_individual_files=args.debug  # 디버그 모드일 때만 개별 파일 저장
+                save_individual_files=args.debug
             )
 
         elif args.mode == 'exclude':
-            if not args.lora_exclude:
-                print("Warning: exclude 모드에는 --lora_exclude가 필요합니다. base model만 사용합니다.")
-
             print("=== ConsoleLLM: EXCLUDE MODE ===")
             print(f"프로젝트: {args.project}")
             print(f"출력 디렉토리: {args.output_dir}")
+            print(f"파일 타입: {args.file_types}")
 
             results = analyzer.analyze_exclude(
                 project_path=args.project,
                 config_path=args.config,
                 output_dir=args.output_dir,
                 max_workers=args.max_workers,
-                save_individual_files=args.debug  # 디버그 모드일 때만 개별 파일 저장
+                save_individual_files=args.debug,
+                file_types=[args.file_types]
             )
 
-        elif args.mode == 'both':
-            print("=== ConsoleLLM: BOTH MODES ===")
+        elif args.mode == 'all':
+            print("=== ConsoleLLM: ALL MODES ===")
             print(f"프로젝트: {args.project}")
             print(f"출력 디렉토리: {args.output_dir}")
+            print(f"Exclude 파일 타입: both (헤더 + Swift)")
+            print(f"Sensitive 파일 타입: Swift만")
 
-            results = analyzer.analyze_both(
+            results = analyzer.analyze_all(
                 project_path=args.project,
                 config_path=args.config,
                 output_base_dir=args.output_dir,
                 max_workers=args.max_workers,
-                save_individual_files=args.debug  # 디버그 모드일 때만 개별 파일 저장
+                save_individual_files=args.debug
             )
 
         print(f"\n=== ConsoleLLM {args.mode.upper()} 분석이 완료되었습니다. ===")
         print(f"결과가 {args.output_dir}에 저장되었습니다.")
 
         # 결과 파일들 표시
-        if args.mode in ['exclude', 'both']:
-            exclude_txt = os.path.join(args.output_dir, "exclude",
-                                       "exclude_id.txt") if args.mode == 'both' else os.path.join(args.output_dir,
-                                                                                                  "exclude_id.txt")
+        if args.mode in ['exclude', 'all']:
+            if args.mode == 'all':
+                exclude_txt = os.path.join(args.output_dir, "exclude", "exclude_id.txt")
+            else:
+                exclude_txt = os.path.join(args.output_dir, "exclude_id.txt")
+
             if os.path.exists(exclude_txt):
                 print(f"Exclude 결과: {exclude_txt}")
 
-        if args.mode in ['sensitive', 'both']:
-            sensitive_txt = os.path.join(args.output_dir, "sensitive",
-                                         "sensitive_id.txt") if args.mode == 'both' else os.path.join(args.output_dir,
-                                                                                                      "sensitive_id.txt")
+        if args.mode in ['sensitive', 'all']:
+            if args.mode == 'all':
+                sensitive_txt = os.path.join(args.output_dir, "sensitive", "sensitive_id.txt")
+            else:
+                sensitive_txt = os.path.join(args.output_dir, "sensitive_id.txt")
+
             if os.path.exists(sensitive_txt):
                 print(f"Sensitive 결과: {sensitive_txt}")
+
+        # 결과 요약 출력
+        if args.mode == 'all' and isinstance(results, dict):
+            if 'exclude' in results:
+                exclude_summary = results['exclude']
+                print(f"\nExclude 분석 요약:")
+                print(f"  - 처리된 파일: {exclude_summary.get('total_files_analyzed', 0)}개")
+                print(f"  - 헤더 파일: {exclude_summary.get('header_files_processed', 0)}개")
+                print(f"  - Swift 파일: {exclude_summary.get('swift_files_processed', 0)}개")
+                print(f"  - 발견된 식별자: {exclude_summary.get('total_exclude_identifiers_found', 0)}개")
+
+            if 'sensitive' in results:
+                sensitive_summary = results['sensitive']
+                print(f"\nSensitive 분석 요약:")
+                print(f"  - 처리된 파일: {sensitive_summary.get('files_analyzed', 0)}개")
+                print(f"  - 발견된 식별자: {sensitive_summary.get('total_sensitive_identifiers_found', 0)}개")
+
+        elif isinstance(results, dict):
+            print(f"\n분석 요약:")
+            print(f"  - 처리된 파일: {results.get('files_analyzed', results.get('total_files_analyzed', 0))}개")
+            if 'header_files_processed' in results:
+                print(f"  - 헤더 파일: {results.get('header_files_processed', 0)}개")
+            if 'swift_files_processed' in results:
+                print(f"  - Swift 파일: {results.get('swift_files_processed', 0)}개")
+
+            identifier_count = results.get('total_exclude_identifiers_found',
+                                           results.get('total_sensitive_identifiers_found', 0))
+            print(f"  - 발견된 식별자: {identifier_count}개")
 
         # 디버그 모드일 때만 개별 파일 언급
         if args.debug:

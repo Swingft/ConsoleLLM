@@ -1,4 +1,3 @@
-# console_llm/analyzers/__init__.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -12,6 +11,6 @@ from .exclude_analyzer import ExcludeAnalyzer
 from .sensitive_analyzer import SensitiveAnalyzer
 
 __all__ = [
-    'ExcludeAnalyzer',  # Header + Swift 파일 exclude 분석
-    'SensitiveAnalyzer'  # Swift 파일 sensitive 분석
+    'ExcludeAnalyzer',
+    'SensitiveAnalyzer'
 ]
